@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .calculadora {
+            border: 5px solid orange;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            background-color: white;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .botoes {
+            margin-top: 10px;
+        }
+        .botoes input {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculadora">
+        <h1>Minha Calculadora</h1>
+        <label for="numero1">Primeiro Número</label><br>
+        <input type="number" id="numero1" value="10"><br>
+        <label for="numero2">Segundo Número</label><br>
+        <input type="number" id="numero2" value="10"><br>
+        <div class="botoes">
+            <input type="button" value="Soma" onclick="calcular('+')">
+            <input type="button" value="Subtrair" onclick="calcular('-')">
+            <input type="button" value="Multiplicar" onclick="calcular('*')">
+            <input type="button" value="Dividir" onclick="calcular('/')">
+        </div>
+        <div id="resultado">O Resultado é 20</div>
+    </div>
+
+    <script>
+        function calcular(operacao) {
+            const numero1 = parseFloat(document.getElementById("numero1").value);
+            const numero2 = parseFloat(document.getElementById("numero2").value);
+            let resultado;
+
+            switch (operacao) {
+                case '+':
+                    resultado = numero1 + numero2;
+                    break;
+                case '-':
+                    resultado = numero1 - numero2;
+                    break;
+                case '*':
+                    resultado = numero1 * numero2;
+                    break;
+                case '/':
+                    resultado = numero1 / numero2;
+                    break;
+                default:
+                    resultado = "Operação inválida";
+            }
+
+            document.getElementById("resultado").textContent = "O Resultado é " + resultado;
+        }
+    </script>
+</body>
+</html>
